@@ -10,7 +10,7 @@ API Server is built upon the the Basic API Server. Implementing more SQL data mo
 
 ### Links & Resources
 {GitHub Actions} {URL}
-{Deployed Database} {}
+{Deployed Database} {https://lab4-api-server.onrender.com/}
 
 see '.env.sample'
 
