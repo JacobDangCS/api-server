@@ -1,15 +1,16 @@
-# LAB - Class 03
+# LAB - Class 04
 
-## Project: Basic API Server
+## Project: API Server
 
 ### Author: Jacob Dang
 
 ### Problem Domain
-Building a REST API using Express. Must utilize endpoints that perform CRUD operations on a database and fit the REST standard.
+API Server is built upon the the Basic API Server. Implementing more SQL data models and model interface
+
 
 ### Links & Resources
 {GitHub Actions} {URL}
-{Deployed Database} {https://lab3-basic-api-server.onrender.com/}
+{Deployed Database} {}
 
 see '.env.sample'
 
@@ -17,10 +18,11 @@ see '.env.sample'
 - Feature One:
     - Basic Error Handlers/Testers
 - Feature Two:
-    - Status Codes within CRUD operations
-
+    - Status Codes within CRUD operations from model interface
 - Feature Three:
-    - ROUTES: GET, UPDATE, DELETE
+    - ROUTES: GET, UPDATE, DELETE using model interface
+- Feature Four:
+    - New Schema & Route used    
 
 #### Tests
 - How do you run tests?
@@ -28,7 +30,8 @@ see '.env.sample'
 
 - Any tests of note:
     - Use a external client to access database
+    - Use GET, POST, DELETE to test database functionality
 
 
 ## UML
-![UML](./assets/lab3-image.png)
+![UML](./assets/lab4-image.png)

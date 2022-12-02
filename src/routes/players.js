@@ -7,10 +7,9 @@ const express = require('express');
 
 //Remove PlayerModel after finishing DELETE Interface
 const { PlayerModel } = require('../models/index');
-const { playerInterface, questInterface} = require('..//models')
+const { playerInterface, questInterface } = require('..//models')
 
 const router = express.Router();
-
 
 
 //Creates a player
@@ -34,10 +33,10 @@ router.get('/players/:id', async (req, res, next) => {
     }
 });
 
-route.get('/playersWithQuests/:id', async(req, res, next) => {
+route.get('/playersWithQuests/:id', async (req, res, next) => {
     let id = req.params.id;
     const playerWithQuests = await playerInterface.readManyToOne(id, questInterface.model);
-    res.status(200).send(playerWithQuests);3
+    res.status(200).send(playerWithQuests); 3
 })
 
 //Retrieves all players
@@ -68,7 +67,7 @@ router.put('/players/:id', async (req, res, next) => {
 router.delete('/players/:id', async (req, res, next) => {
     try {
         let id = parseInt(req.params.id);
-        const deletePlayer = await PlayerModel.destroy({ where: { id } });
+        const deletePlayer = await playerInterface.destroy(id);
         res.status(200).send(deletePlayer);
     } catch (error) {
         next(error)

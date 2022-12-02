@@ -1,35 +1,35 @@
 'use strict';
 
 class ModelInterface {
-    constructor(model){
+    constructor(model) {
         this.model = model;
     }
 
     //include CRUD operations (create, read, update, delete)
 
-    async create(json){
+    async create(json) {
         // console.log('this is our json', json);
         try {
-        //substitutes in players.js => const newPlayer = await PlayerModel.create(req.body);
-          let record = await this.model.create(json)
-          return record;
-        } catch(e){
+            //substitutes in players.js => const newPlayer = await PlayerModel.create(req.body);
+            let record = await this.model.create(json)
+            return record;
+        } catch (e) {
             console.error('Error occured: create ModelInterface', e)
             return e;
         }
     }
 
-    async read(id = null){
+    async read(id = null) {
         try {
-        let record;
+            let record;
 
-          if (id){
-            //substitutes in players.js => await PlayerModel.findOne({ where: { id } });
-            //substitutes in players.js => await PlayerModel.findAll();
-            record = await this.model.findOne( { where:{id} } );
-          }  else {
-            record = await this.model.findAll();
-          }
+            if (id) {
+                //substitutes in players.js => await PlayerModel.findOne({ where: { id } });
+                //substitutes in players.js => await PlayerModel.findAll();
+                record = await this.model.findOne({ where: { id } });
+            } else {
+                record = await this.model.findAll();
+            }
             return record;
         } catch (e) {
             console.error('Error occured: read ModelInterface', e)
@@ -37,9 +37,9 @@ class ModelInterface {
         }
     }
 
-    async readManyToOne(id, model){
+    async readManyToOne(id, model) {
         try {
-            let record = await this.model.findOne( { where:{id} , include: model} );
+            let record = await this.model.findOne({ where: { id }, include: model });
             return record
         } catch (e) {
             console.error('Error occured: readManyToOne', e)
@@ -47,19 +47,26 @@ class ModelInterface {
         }
     }
 
-    async update(json, id){
+    async update(json, id) {
         //substitutes in players.js => const rePlayer = await PlayerModel.findOne({ where: { id } });
 
         try {
-            await this.model.update(json, { where: {id} });
-            let record = await this.model.findOne( { where:{id} } )
+            await this.model.update(json, { where: { id } });
+            let record = await this.model.findOne({ where: { id } })
             return record
         } catch (e) {
             console.error('Error occured: update ModelInterface', e)
             return e;
         }
+    }
 
-      //FINISH DELETE FUNCTION async delete(id){}  
+    async delete(id) {
+        try {
+            await this.model.destory({ where: { id } })
+        } catch (error) {
+            console.error('Error occured: update ModelInterface', e)
+            return e;
+        }
     }
 }
 
