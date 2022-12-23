@@ -1,6 +1,7 @@
 # LAB - Class 04
 
 ## Project: API Server
+Using the frame work of an RPG, this API server is meant to showcase how to create and interact with "players" & "quests", where both routes can log various strings in context to the RPG frame work.
 
 ### Author: Jacob Dang
 
@@ -21,12 +22,18 @@ see '.env.sample'
     - Status Codes within CRUD operations from model interface
 - Feature Three:
     - ROUTES: GET, UPDATE, DELETE using model interface
+        - /players
+        - /playersWithQuests
+        - /quests
+        - /players/:id
+        - /quests/:id
+
 - Feature Four:
     - New Schema & Route used    
 
 #### Tests
 - How do you run tests?
-    - npm i
+    - npm test
 
 - Any tests of note:
     - Use a external client to access database
